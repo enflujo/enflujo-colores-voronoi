@@ -32,16 +32,18 @@ En y: -1 = límite de abajo, 0 = centro, 1 = límite de arriba.
       // v2: izq arriba
       -1, 1,
       // v3: centro arriba
-      0, 1,
+      0, 0,
       // Triángulo 2
       // v1: centro arriba
-      0, 1,
+      0, 0,
       // v2: der abajo
       1, -1,
       // v3: der arriba
       1, 1,
       // Triángulo 3
-      -1, -1, 0, 1, 1, -1,
+      -1, -1, 0, 0, 1, -1,
+      // Triángulo 4
+      -1, 1, 0, 0, 1, 1,
     ]
   );
 
@@ -67,13 +69,15 @@ El color se define en cada punto x, y.
       1, 0, 0, 1, 1, 1,
       // t3
       0, 1, 1, 0, 0, 1,
+      // t4
+      1, 1, 1, 0, 1, 1,
     ]
   );
 
   gl.useProgram(programa);
-  gl.uniform3fv(arribaIzq, normalizarColor(200, 255, 138));
+  gl.uniform3fv(arribaIzq, normalizarColor(200, 55, 138));
   gl.uniform3fv(abajoIzq, normalizarColor(18, 139, 184));
   gl.uniform3fv(arribaDer, normalizarColor(200, 252, 252));
   gl.uniform3fv(abajoDer, normalizarColor(203, 79, 121));
-  gl.drawArrays(gl.TRIANGLES, 0, 9);
+  gl.drawArrays(gl.TRIANGLES, 0, 12);
 }
